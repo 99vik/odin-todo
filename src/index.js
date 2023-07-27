@@ -10,4 +10,3 @@ const task2 = new Task("task2", "task2 description", "date", workspace1);
 const task3 = new Task("task3", "task3 description", "date", workspace1);
 const task4 = new Task("task4", "task4 description", "date", workspace2);
 
-
