@@ -8,6 +8,7 @@ class Task {
         this.completed = false;
         if (workspace != null) {
             workspace.tasks.push(this);
+            this.workspace = workspace.title;
         } else {
             this.workspace = workspace
         }
