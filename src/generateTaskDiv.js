@@ -8,6 +8,13 @@ export default function generateTaskDiv(task) {
 
     let inputCheckbox = document.createElement("input");
     inputCheckbox.setAttribute("type", "checkbox");
+    if (task.completed) {
+        taskInfoDiv.classList.add("completed");
+        inputCheckbox.checked = true; 
+    } 
+    inputCheckbox.addEventListener("change", (e) => {
+        taskCompleteToggle(e.target, task);
+    });
     taskInfoDiv.appendChild(inputCheckbox);
 
     let p1 = document.createElement("p");
@@ -51,4 +58,10 @@ function seeTaskDetails(taskInfo) {
 function rotateIcon(icon) {
     icon.classList.toggle("rotated");
     icon.classList.toggle("down-icon");
+}
+
+function taskCompleteToggle(domObject, task) {
+    domObject.parentNode.classList.toggle("completed");
+    task.completed ? task.completed = false : task.completed = true;
+    console.log(task);
 }

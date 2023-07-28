@@ -30,6 +30,6 @@ function tabCases(category, tasks) {
         case "upcoming":
 
         case "completed":
-
+            return tasks.filter( task => task.completed == true );
     }
 }
