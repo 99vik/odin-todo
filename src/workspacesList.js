@@ -1,3 +1,5 @@
+import renderWorkspaceTasks from "./renderWorkspaceTasks";
+
 export default function generateWorkspacesList(_workspaces) {
     const list = document.querySelector(".workspaces-list");
     const workspaces = _workspaces
@@ -7,5 +9,9 @@ export default function generateWorkspacesList(_workspaces) {
         span.textContent = workspace.title;
         li.appendChild(span);
         list.appendChild(li);
+
+        li.addEventListener("click", () => {
+            renderWorkspaceTasks(workspace);
+        });
     });
 }
