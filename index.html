@@ -31,12 +31,25 @@
             </div>
             <div class="input-container">
                 <div class="input-field">
-                    <label for="task-name">Task name</label>
+                    <label for="task-name">Name</label>
                     <input id="task-name" type="text">
+                </div>
+                <div class="input-field">
+                    <label for="task-description">Description</label>
+                    <input id="task-description" type="text">
+                </div>
+                <div class="input-field">
+                    <label for="task-duedate">Due date</label>
+                    <input id="task-duedate" type="datetime-local">
+                </div>
+                <div class="input-field">
+                    <label for="task-workspace">Workspace</label>
+                    <select id="task-workspace">
+                    </select>
                 </div>
             </div>
             <div>
-                <button class="create-btn" id="create-workspace">Create</button>
+                <button class="create-btn" id="create-task">Create</button>
             </div>
         </div>
     </div>
@@ -47,7 +60,6 @@
                 <ul class="tabs">
                     <li id="home">Home</li>
                     <li id="uncategorized">Uncategorized</li>
-                    <li id="today">Today</li>
                     <li id="upcoming">Upcoming</li>
                     <li id="completed">Completed</li>
                 </ul>
