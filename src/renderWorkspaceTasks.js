@@ -14,7 +14,7 @@ export default function renderWorkspaceTasks(workspace) {
     btn.innerHTML = "New task";
     btn.classList.add("create-btn");
     btn.addEventListener("click", () => {
-        openTaskModal();
+        openTaskModal(workspace);
     });
     header.appendChild(btn);
 

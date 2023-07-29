@@ -16,7 +16,7 @@ export default function generateTabContent(_tasks, category) {
         btn.innerHTML = "New task";
         btn.classList.add("create-btn");
         btn.addEventListener("click", () => {
-            openTaskModal();
+            openTaskModal("home");
         });
         header.appendChild(btn);
     }
@@ -41,10 +41,8 @@ function tabCases(category, tasks) {
             return tasks;
         case "uncategorized":
             return tasks.filter( task => task.workspace == null );
-        case "today":
-
         case "upcoming":
-
+            return tasks.filter( task => task.completed == false );
         case "completed":
             return tasks.filter( task => task.completed == true );
     }
