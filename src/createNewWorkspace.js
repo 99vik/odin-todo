@@ -3,9 +3,9 @@ import generateWorkspacesList from "./workspacesList";
 
 export default (function createWorkspace() {
     const addBtn = document.querySelector(".create-workspace-btn");
-    const closeBtn = document.querySelector(".close-btn");
+    const closeBtn = document.querySelector(".workspace-modal .close-btn");
     const modal = document.querySelector(".modal");
-    const modalCreateWorkspace = document.querySelector(".modal-container-workspace");
+    const modalCreateWorkspace = document.querySelector(".modal-container.workspace-modal");
     const createBtn = document.querySelector("#create-workspace");
     const nameInput = document.querySelector("#workspace-name");
 
