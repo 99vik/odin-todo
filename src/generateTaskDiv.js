@@ -63,5 +63,4 @@ function rotateIcon(icon) {
 function taskCompleteToggle(domObject, task) {
     domObject.parentNode.classList.toggle("completed");
     task.completed ? task.completed = false : task.completed = true;
-    console.log(task);
 }

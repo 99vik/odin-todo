@@ -1,4 +1,5 @@
 import generateTaskDiv from "./generateTaskDiv";
+import Task from "./taskClass";
 
 export default function generateTabContent(_tasks, category) {
     const title = document.querySelector(".header-title");
@@ -33,3 +34,12 @@ function tabCases(category, tasks) {
             return tasks.filter( task => task.completed == true );
     }
 }
+
+(() => {
+    const tabs = document.querySelectorAll(".tabs li");
+    tabs.forEach( tab => {
+        tab.addEventListener( "click", e => {
+            generateTabContent(Task.allInstances, e.target.id);
+        });
+    });
+})();
