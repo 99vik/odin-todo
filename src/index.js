@@ -3,9 +3,9 @@ import Workspace from "./workspaceClass";
 import './style.css';
 import generateTabContent from "./generateTabContent";
 import generateWorkspacesList from "./workspacesList";
+import createNewWorkspace from "./createNewWorkspace";
 
-
-(function generateTabListeners() {
+(() => {
     const tabs = document.querySelectorAll(".tabs li");
     tabs.forEach( tab => {
         tab.addEventListener( "click", e => {
@@ -13,6 +13,34 @@ import generateWorkspacesList from "./workspacesList";
         });
     });
 })();
+
+(() => {
+    const addBtn = document.querySelector(".create-workspace-btn");
+    const closeBtn = document.querySelector(".close-btn");
+    const modal = document.querySelector(".modal");
+    const modalCreateWorkspace = document.querySelector(".modal-container-workspace");
+    const createBtn = document.querySelector("#create-workspace");
+    const nameInput = document.querySelector("#workspace-name");
+
+    addBtn.addEventListener("click", () => {
+        modal.classList.toggle("show");
+        modalCreateWorkspace.classList.toggle("show");
+    });
+
+    closeBtn.addEventListener("click", () => {
+        modal.classList.toggle("show");
+        modalCreateWorkspace.classList.toggle("show");
+    });
+
+    createBtn.addEventListener("click", () => {
+        createNewWorkspace(nameInput.value);
+        nameInput.value = "";
+        generateWorkspacesList(Workspace.allInstances);
+        modal.classList.toggle("show");
+        modalCreateWorkspace.classList.toggle("show");
+    });
+})();
+
 
 const workspace1 = new Workspace("workspace1");
 const workspace2 = new Workspace("workspace2");

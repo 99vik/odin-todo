@@ -2,6 +2,7 @@ import renderWorkspaceTasks from "./renderWorkspaceTasks";
 
 export default function generateWorkspacesList(_workspaces) {
     const list = document.querySelector(".workspaces-list");
+    list.innerHTML = "";
     const workspaces = _workspaces
     workspaces.forEach(workspace => {
         let li = document.createElement("li");
