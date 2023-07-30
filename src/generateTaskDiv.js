@@ -45,7 +45,7 @@ export default function generateTaskDiv(task) {
         const p2 = document.createElement("p");
         p.classList.add("details-title");
         p.textContent = "Due date:";
-        p2.textContent = format(task.dueDate, 'MMMM dd., hh:m');
+        p2.textContent = format(task.dueDate, 'dd. MMMM, hh:mm');
         div.appendChild(p);
         div.appendChild(p2);
         taskDetailsDiv.appendChild(div);
