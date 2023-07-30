@@ -1,4 +1,5 @@
 import renderWorkspaceTasks from "./renderWorkspaceTasks";
+import showActivetab from "./showActiveTab";
 
 export default function generateWorkspacesList(_workspaces) {
     const list = document.querySelector(".workspaces-list");
@@ -11,8 +12,13 @@ export default function generateWorkspacesList(_workspaces) {
         li.appendChild(span);
         list.appendChild(li);
 
-        li.addEventListener("click", () => {
+        li.addEventListener("click", (e) => {
             renderWorkspaceTasks(workspace);
+            if (e.target.tagName == "SPAN") {
+                showActivetab(e.target.parentNode);
+            } else {
+                showActivetab(e.target);
+            }
         });
     });
 }

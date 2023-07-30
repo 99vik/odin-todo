@@ -34,10 +34,34 @@ ul.workspaces-list {
     list-style-position: inside;
 }
 
+li {
+    padding: 0 0.6rem;
+}
+.workspaces-list li:hover, .workspaces-list li.active {
+    transition: .2s;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    background-color: rgba(207, 207, 207, 0.458);
+}
+
+.workspaces-list li:hover span, .workspaces-list li.active span {
+    transition: 0.2s;
+    color: var(--theme-color);
+}
+
+.tabs li:hover, .tabs li.active {
+    transition: .2s;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    color: var(--theme-color);
+    background-color: rgba(207, 207, 207, 0.458);
+}
+
 .workspace-create {
     gap: 2.5rem;
     display: flex;
     align-items: center;
+    margin-bottom: 0.4rem;
 }
 
 .create-workspace-btn {

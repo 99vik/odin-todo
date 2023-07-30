@@ -4,6 +4,7 @@ import './style.css';
 import generateTabContent from "./generateTabContent";
 import generateWorkspacesList from "./workspacesList";
 import createNewWorkspace from "./createNewWorkspace";
+import showActivetab from "./showActiveTab";
 
 const workspace1 = new Workspace("workspace1");
 const workspace2 = new Workspace("workspace2");
@@ -18,3 +19,4 @@ task3.completed = true;
 
 generateWorkspacesList(Workspace.allInstances);
 generateTabContent(Task.allInstances, "home");
+showActivetab(document.querySelector("#home"));

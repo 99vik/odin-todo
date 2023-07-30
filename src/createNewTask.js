@@ -2,6 +2,7 @@ import Task from "./taskClass";
 import Workspace from "./workspaceClass";
 import renderWorkspaceTasks from "./renderWorkspaceTasks";
 import generateTabContent from "./generateTabContent";
+import showActiveTab from "./showActiveTab";
 
 export function createTask(_name, _description, _dueDate, _workspace) {
     if (_workspace == '') {

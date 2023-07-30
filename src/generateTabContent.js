@@ -1,6 +1,7 @@
 import generateTaskDiv from "./generateTaskDiv";
 import Task from "./taskClass";
 import { openTaskModal } from "./createNewTask";
+import showActiveTab from "./showActiveTab";
 
 export default function generateTabContent(_tasks, category) {
     const header = document.querySelector(".content-header");
@@ -53,6 +54,7 @@ function tabCases(category, tasks) {
     tabs.forEach( tab => {
         tab.addEventListener( "click", e => {
             generateTabContent(Task.allInstances, e.target.id);
+            showActiveTab(e.target);
         });
     });
 })();
