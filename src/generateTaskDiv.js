@@ -1,3 +1,5 @@
+import formatDistance from "date-fns/formatDistance";
+
 export default function generateTaskDiv(task) {
     let taskDiv = document.createElement("div");
     taskDiv.setAttribute("class", "task");
@@ -21,9 +23,11 @@ export default function generateTaskDiv(task) {
     p1.textContent = task.title;
     taskInfoDiv.appendChild(p1);
 
-    let p2 = document.createElement("p");
-    p2.textContent = task.dueDate;
-    taskInfoDiv.appendChild(p2);
+    if (task.dueDate) {
+        let p2 = document.createElement("p");
+        p2.textContent = formatDistance(task.dueDate, new Date(), { addSuffix: true });
+        taskInfoDiv.appendChild(p2);
+    } 
 
     let img = document.createElement("img");
     img.setAttribute("src", "./images/menu-down.svg");
@@ -34,17 +38,26 @@ export default function generateTaskDiv(task) {
         seeTaskDetails(taskDetailsDiv);
     });
 
-    let p3 = document.createElement("p");
-    p3.textContent = `Due Date: ${task.dueDate}`;
-    taskDetailsDiv.appendChild(p3);
+    if (task.dueDate) {
+        let p3 = document.createElement("p");
+        p3.textContent = `Due Date: ${task.dueDate}`;
+        taskDetailsDiv.appendChild(p3);
+    }
+
 
     let p4 = document.createElement("p");
-    p4.textContent = `Description: ${task.description}`;
+    if (task.description) {
+        p4.textContent = `Description: ${task.description}`;
+    } else {
+        p4.textContent = `Description: -`;
+    }
     taskDetailsDiv.appendChild(p4);
 
-    let p5 = document.createElement("p");
-    p5.textContent = `Workspace: ${task.workspace}`;
-    taskDetailsDiv.appendChild(p5);
+    if (task.workspace) {
+        let p5 = document.createElement("p");
+        p5.textContent = `Workspace: ${task.workspace}`;
+        taskDetailsDiv.appendChild(p5);
+    }
 
     taskDiv.appendChild(taskInfoDiv);
     taskDiv.appendChild(taskDetailsDiv);

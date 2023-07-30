@@ -4,7 +4,9 @@ class Task {
     constructor(title, description = null, dueDate = null, workspace = null) {
         this.title = title;
         this.description = description;
-        this.dueDate = dueDate;
+        if (dueDate) {
+            this.dueDate = new Date(dueDate);
+        }
         this.completed = false;
         if (workspace != null) {
             workspace.tasks.push(this);
