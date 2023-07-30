@@ -1,4 +1,5 @@
 import formatDistance from "date-fns/formatDistance";
+import format from "date-fns/format";
 
 export default function generateTaskDiv(task) {
     let taskDiv = document.createElement("div");
@@ -39,24 +40,51 @@ export default function generateTaskDiv(task) {
     });
 
     if (task.dueDate) {
-        let p3 = document.createElement("p");
-        p3.textContent = `Due Date: ${task.dueDate}`;
-        taskDetailsDiv.appendChild(p3);
+        const div = document.createElement("div");
+        const p = document.createElement("p");
+        const p2 = document.createElement("p");
+        p.classList.add("details-title");
+        p.textContent = "Due date:";
+        p2.textContent = format(task.dueDate, 'MMMM dd., hh:m');
+        div.appendChild(p);
+        div.appendChild(p2);
+        taskDetailsDiv.appendChild(div);
     }
 
 
-    let p4 = document.createElement("p");
     if (task.description) {
-        p4.textContent = `Description: ${task.description}`;
+        const div = document.createElement("div");
+        const p = document.createElement("p");
+        const p2 = document.createElement("p");
+        p.classList.add("details-title");
+        p.textContent = "Description:";
+        p2.textContent = task.description;
+        div.appendChild(p);
+        div.appendChild(p2);
+        taskDetailsDiv.appendChild(div);
     } else {
-        p4.textContent = `Description: -`;
-    }
-    taskDetailsDiv.appendChild(p4);
+        const div = document.createElement("div");
+        const p = document.createElement("p");
+        const p2 = document.createElement("p");
+        p.classList.add("details-title");
+        p.textContent = `Description:`;
+        p2.textContent = "-";
+        div.appendChild(p);
+        div.appendChild(p2);
+        taskDetailsDiv.appendChild(div);
 
+    }
+    
     if (task.workspace) {
-        let p5 = document.createElement("p");
-        p5.textContent = `Workspace: ${task.workspace}`;
-        taskDetailsDiv.appendChild(p5);
+        const div = document.createElement("div");
+        const p = document.createElement("p");
+        const p2 = document.createElement("p");
+        p.classList.add("details-title");
+        p.textContent = "Workspace:";
+        p2.textContent = task.workspace;
+        div.appendChild(p);
+        div.appendChild(p2);
+        taskDetailsDiv.appendChild(div);
     }
 
     taskDiv.appendChild(taskInfoDiv);

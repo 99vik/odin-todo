@@ -154,8 +154,7 @@ body {
     padding-top: 2rem;
     padding-bottom: 1rem;
     margin-top: -0.8rem;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    justify-content: space-around;
     border: 1px solid var(--theme-color);
     border-top: none;
     border-bottom-right-radius: 0.6rem;
@@ -167,9 +166,14 @@ body {
 }
 
 .visible {
-    display: grid;
+    display: flex;
     animation: expand 300ms ease-out;
     transform-origin: top;
+}
+
+.details-title {
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
 .rotated {
