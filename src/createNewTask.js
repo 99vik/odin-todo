@@ -23,8 +23,10 @@ export function openTaskModal(mode) {
     const descriptionInput = document.querySelector("#task-description");
     const dueDateInput = document.querySelector("#task-duedate");
     const workspaceInput = document.querySelector("#task-workspace");
-    workspaceInput.innerHTML = "";
-    
+    nameInput.value = "";
+    descriptionInput.value = "";
+    dueDateInput.value = "";
+    workspaceInput.value = "";
 
     if (mode == "home") {
         const option = document.createElement("option");
